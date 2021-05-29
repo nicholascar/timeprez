@@ -1,0 +1,11 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+INSERT {
+    ?d a dcat:Distribution .
+}
+WHERE {
+  VALUES ?dist_type { dcat:Distribution dcat:DataService }
+  ?d a ?dist_type
+}

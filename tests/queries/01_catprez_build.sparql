@@ -1,0 +1,35 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX cp: <https://w3id.org/profile/catprez/>
+PREFIX sys: <https://localhost:5000/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+INSERT {
+    ?s dcat:distribution sys: , sys:sparql .
+
+    sys:
+      a dcat:DataService ;
+      dcterms:title ?sys_title ;
+      dcat:landingPage ?sys_landing_page ;
+      dcat:endpointURL ?sys_endpoint_url ;
+    .
+
+    sys:sparql
+      a dcat:DataService ;
+      dcterms:title ?sparql_title ;
+      dcat:landingPage ?sparql_landing_page ;
+      dcat:endpointURL ?sparql_endpoint_url ;
+    .
+}
+WHERE {
+    ?s a dcat:Catalog ;
+       ?p ?o ;
+  	   dcterms:title ?title .
+
+	BIND (CONCAT("ConnegP API for ", ?title) AS ?sys_title)
+    BIND (STR(sys:) AS ?sys_landing_page)
+    BIND (STR(sys:) AS ?sys_endpoint_url)
+
+    BIND (CONCAT("SPARQL endpoint for ", ?title) AS ?sparql_title)
+    BIND (STR(sys:sparql) AS ?sparql_landing_page)
+    BIND (STR(sys:sparql) AS ?sparql_endpoint_url)
+}

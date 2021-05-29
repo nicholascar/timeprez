@@ -1,0 +1,13 @@
+PREFIX catprez: <https://w3id.org/profile/catprez/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdo: <https://schema.org/>
+
+
+<http://example.com/catalogue/time>
+    a dcat:Catalog ;
+    dcterms:title "Timescales Catalogue"@en ;
+    dcterms:description """This is a catalogue of timescales. Timescales are vocabularies of temporal entities - periods of time, time instants etc."""@en ;
+    dcterms:publisher <https://orcid.org/0000-0002-8742-7730> ;
+.
+

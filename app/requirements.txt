@@ -1,0 +1,11 @@
+fastapi
+httpx
+uvicorn
+starlette
+jinja2
+aiofiles
+markdown
+python-json-logger==2.0.1
+git+https://github.com/RDFLib/rdflib.git@master#egg=rdflib
+git+https://github.com/RDFLib/pyLDAPI.git@feature/merge#egg=pyldapi
+httpx

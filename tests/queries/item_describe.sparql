@@ -1,0 +1,11 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+SELECT *
+FROM <http://original.com>
+FROM <http://system.com>
+WHERE {
+    <http://example.com/demo>
+        ?p ?o .
+}

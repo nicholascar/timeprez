@@ -1,0 +1,11 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+INSERT {
+    ?r dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/>
+}
+WHERE {
+    ?r a dcat:Resource ;
+       dcterms:title ?t .
+}

@@ -1,0 +1,13 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+SELECT ?r ?t
+FROM <https://original.com>
+FROM <https://inferred.com>
+WHERE {
+    ?c a dcat:Catalog ;
+       dcterms:hasPart ?r .
+
+    ?r dcterms:title ?t .
+}

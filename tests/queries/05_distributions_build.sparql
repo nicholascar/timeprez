@@ -1,0 +1,19 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+INSERT {
+  	  ?r dcat:distribution ?d .
+      ?d dcterms:title ?t_new .
+}
+WHERE {
+    VALUES ?g { <https://original.com> <http://system.com> }
+    ?r dcat:distribution ?d ;
+        dcterms:title ?r_title .
+
+    OPTIONAL {
+      ?d dcterms:title ?t .
+    }
+
+    BIND (COALESCE (?t, CONCAT("Distribution for ", ?r_title)) AS ?t_new)
+}

@@ -1,0 +1,19 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ts: <http://resource.geosciml.org/vocabulary/timescale/>
+
+ts:gts2020
+  a dcat:Resource ;
+  dcterms:identifier "gts2020" ;
+  dcterms:title "Geologic Time Scale (2020)"@en ;
+  dcterms:description "RDF representation of the Geologic Time Scale, as defined in the International Chronostratigraphic Chart (ICC) from the International Commission on Stratigraphy (ICS). The ICC embraces both chronostratigraphic (time-rock) units and their equivalent geochronologic (geologic-time) units, the former being related to the ‘Stratigraphic points’ referred to below, and the latter (geochronologic units) being employed in this RDF representation."@en ;
+  dcterms:creator "Simon J D COX, CSIRO" ;
+  dcterms:created "2020-06-05"^^xsd:date ;
+  dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+  dcterms:modified "2020-10-21"^^xsd:date ;
+  dcterms:publisher "International Commission on Stratigraphy"@en ;
+  sdo:codeRepository "https://github.com/CGI-IUGS/timescale-data"^^xsd:anyURI ;
+.
