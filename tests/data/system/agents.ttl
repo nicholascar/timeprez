@@ -1,5 +1,6 @@
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
 <https://orcid.org/0000-0002-8742-7730>

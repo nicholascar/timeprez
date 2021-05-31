@@ -6,12 +6,8 @@ from api.profiles import *
 import utils
 
 from fastapi import Response
-from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
 from pyldapi.fastapi_framework import Renderer
-
-from rdflib import URIRef, Literal, Graph
-from rdflib.namespace import DCAT, DCTERMS, RDF
 
 import markdown
 import logging
