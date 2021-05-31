@@ -4,7 +4,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sdo: <https://schema.org/>
 
 
-<http://example.com/catalogue/time>
+<http://resource.geosciml.org/catalogue/timescales>
     a dcat:Catalog ;
     dcterms:title "Timescales Catalogue"@en ;
     dcterms:description """This is a catalogue of timescales. Timescales are vocabularies of temporal entities - periods of time, time instants etc."""@en ;

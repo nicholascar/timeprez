@@ -1,0 +1,22 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+<http://resource.geosciml.org/vocabulary/timescale/isc2005>
+    dcterms:isPartOf <http://resource.geosciml.org/catalogue/timescales> ;
+.
+
+<http://resource.geosciml.org/vocabulary/timescale/isc2010>
+    dcterms:isPartOf <http://resource.geosciml.org/catalogue/timescales> ;
+.
+
+<http://resource.geosciml.org/vocabulary/timescale/gts2020>
+    dcterms:isPartOf <http://resource.geosciml.org/catalogue/timescales> ;
+.
+
+<http://resource.geosciml.org/catalogue/timescales>
+    dcterms:hasPart
+        <http://resource.geosciml.org/vocabulary/timescale/isc2005> ,
+        <http://resource.geosciml.org/vocabulary/timescale/isc2010> ,
+        <http://resource.geosciml.org/vocabulary/timescale/gts2020> ;
+.
+
