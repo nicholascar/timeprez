@@ -23,8 +23,7 @@ async def home(request: Request,
                version: Optional[str] = None):
     try:
         logging.info(f"Landing page request: {request.path_params}")
-        render_content = LandingPageRenderer(request).render()
-        return render_content
+        return LandingPageRenderer(request).render()
     except Exception as e:
         logging.info(e)
         return HTTPException(detail=e, status_code=500)

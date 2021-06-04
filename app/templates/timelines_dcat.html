@@ -1,0 +1,71 @@
+{% extends "page.html" %}
+{% block content %}
+  <div>
+    <h1>Timelines</h1>
+    <p>{{ description|safe }}</p>
+  </div>
+  <div id="maincontent" style="margin-bottom:20px;">
+    <div>
+      {% for member in members %}
+        <div style="border:solid 1px black; display:block; margin-top:20px; padding:10px;">
+          <p><a href="{{ member["uri"] }}">{{ member["title"] }}</a></p>
+          <p>{{ member["description"]|safe }}</p>
+          <p><a href="{{ member["publisher"][0] }}">{{ member["publisher"][1] }}</a></p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+  <script>
+      $(function () {
+          (function (name) {
+              var container = $('#pagination-' + name);
+              var sources = function () {
+                  var result = [];
+                  for (var i = 0; i < {{ members|tojson }}.
+                  length;
+                  i++
+              )
+                  {
+                      result.push({{ members|tojson }}[i]);
+                  }
+
+                  return result;
+              }();
+
+              var options = {
+                  dataSource: sources,
+                  pageSize: {{ pageSize }},
+                  pageNumber: {{ pageNumber }},
+                  callback: function (response, pagination) {
+                      window.console && console.log(response, pagination);
+
+                      var dataHtml = '<ul>';
+
+                      $.each(response, function (index, item) {
+                          dataHtml += '<li><a href=' + item[0] + '>' + item[1] + '</a></li>';
+                      });
+
+                      dataHtml += '</ul>';
+
+                      container.prev().html(dataHtml);
+                  }
+              };
+
+              //$.pagination(container, options);
+
+              container.addHook('beforeInit', function () {
+                  window.console && console.log('beforeInit...');
+              });
+              container.pagination(options);
+
+              container.addHook('beforePageOnClick', function () {
+                  window.console && console.log('beforePageOnClick...');
+                  //return false
+              });
+          })('features');
+      })
+
+
+  </script>
+  {% include 'page_altprofiles.html' %}
+{% endblock %}

@@ -1,9 +1,10 @@
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sdo: <https://schema.org/>
+PREFIX tx: <https://data.surroundaustralia.com/def/time-ext>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<http://resource.geosciml.org/vocabulary/timescale/gts2020>
+<http://resource.geosciml.org/vocabulary/timescale/gts2020/>
   a dcat:Resource ;
   dcterms:identifier "gts2020" ;
   dcterms:title "Geologic Time Scale (2020)"@en ;
@@ -14,4 +15,8 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
   dcterms:modified "2020-10-21"^^xsd:date ;
   dcterms:publisher <https://linked.data.gov.au/org/ics> ;
   sdo:codeRepository "https://github.com/CGI-IUGS/timescale-data"^^xsd:anyURI ;
+.
+
+<http://resource.geosciml.org/vocabulary/timescale/gts2020>
+  a tx:Timeline ;
 .

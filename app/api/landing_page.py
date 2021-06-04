@@ -51,14 +51,14 @@ class LandingPage:
                 rel=RelType.CONFORMANCE,
                 type=MediaType.JSON,
                 hreflang=HrefLang.EN,
-                title="OGC API conformance classes implemented by this server"
+                title="API conformance classes implemented by this server"
             ),
             Link(
-                LANDING_PAGE_URL + "/collections",
+                LANDING_PAGE_URL + "/timelines",
                 rel=RelType.DATA,
                 type=MediaType.JSON,
                 hreflang=HrefLang.EN,
-                title="Information about the feature collections"
+                title="Information about the timelines"
             ),
         ]
         # Others

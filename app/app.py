@@ -11,7 +11,7 @@ from pyldapi.fastapi_framework import renderer, renderer_container
 
 from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
-from routers import landing_page, timeline, obj, conformance
+from routers import landing_page, timelines, timeline, obj, conformance
 from monitoring import logging_config
 from middlewares.correlation_id_middleware import CorrelationIdMiddleware
 from middlewares.logging_middleware import LoggingMiddleware
@@ -19,7 +19,7 @@ from middlewares.logging_middleware import LoggingMiddleware
 
 logging_config.configure_logging(
     level="DEBUG" if config.DEBUG else "ERROR",
-    service='catprez-api',
+    service='timeprez-api',
     instance=str(uuid.uuid4())
 )
 
@@ -50,6 +50,7 @@ def configure_routing():
 
     api.mount('/static', StaticFiles(directory='static'), name='static')
     api.include_router(landing_page.router)
+    api.include_router(timelines.router)
     api.include_router(timeline.router)
     api.include_router(obj.router)
     api.include_router(conformance.router)
