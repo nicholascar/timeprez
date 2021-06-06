@@ -25,14 +25,9 @@
             </td>
             <td>{{ profile['label'] }}</td>
             <td>
-              {% for f in profile['mediatypes']|sort() %}
-                {% if "cell" in uri %}
-                  <a href="{{ uri }}?_profile={{ token }}&_mediatype={{ f }}">{{ MEDIATYPE_NAMES[f] if MEDIATYPE_NAMES.get(f) is not none else f }}</a>
-                  <br/>
-                {% else %}
-                  <a href="{{ uri }}?_profile={{ token }}&_mediatype={{ f }}">{{ MEDIATYPE_NAMES[f] if MEDIATYPE_NAMES.get(f) is not none else f }}</a>
-                  <br/>
-                {% endif %}
+              {% for f in profile['mediatypes']|sort %}
+                <a href="{{ uri }}?_profile={{ token }}&_mediatype={{ f[0] }}">{{ f[1] }}</a>
+                <br/>
               {% endfor %}
             </td>
             <td style="text-align: center;">

@@ -1,10 +1,10 @@
-import logging
-from pathlib import Path
+from typing import Union, List
 import httpx
-import os
 import config
 from fastapi import Response
-from rdflib import Graph
+from rdflib import Graph, URIRef
+import urllib.parse
+from pyldapi.profile import Profile
 
 
 def sparql_query(query: str):
@@ -73,28 +73,98 @@ def render_rdf(rdf_in_turtle, format_to_render):
         )
 
 
-if __name__ == "__main__":
-    # uri = "http://example.com/demo"
-    # print(sparql_query("SELECT ?p WHERE {<xxx> <http://purl.org/dc/terms/conformsTo> ?p }".replace("xxx", uri)))
-    config.SPARQL_ENDPOINT = "http://fuseki.surroundaustralia.com/catprez-testing"
-    config.SPARQL_USERNAME = "admin"
-    config.SPARQL_PASSWORD = "Fu53kiD8ta"
+def make_system_uri(uri: Union[str, URIRef], endpoint="object") -> str:
+    if type(uri) == URIRef:
+        uri = str(uri)
+    uri = urllib.parse.quote(uri)
+    return f"{config.LANDING_PAGE_URL}/{endpoint}?uri={uri}"
+
+
+def get_profiles(class_or_stmt: Union[str, URIRef]) -> List[Profile]:
     q = """
+        PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
         PREFIX dcat: <http://www.w3.org/ns/dcat#>
         PREFIX dcterms: <http://purl.org/dc/terms/>
+        PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
         
-        INSERT {
-          GRAPH <http://inferred.com> {
-                ?r dcterms:isPartOf ?c .
-                ?c dcterms:hasPart ?r .
+        SELECT *
+        WHERE {
+            dcat:Catalog altr:hasDefaultRepresentation ?dr .
+          
+            {
+                dcat:Catalog altr:hasRepresentation ?r .
+        
+                ?r dcterms:conformsTo ?p ;
+                   dcterms:format ?mt .
             }
-        }
-        WHERE { 
-            GRAPH ?g {
-              ?r a dcat:Resource .
-              
-              ?c a dcat:Catalog .
+            UNION
+            {
+                rdf:Resource altr:hasRepresentation ?r .
+        
+                ?r dcterms:conformsTo ?p ;
+                   dcterms:format ?mt .
             }
-        }
+          
+            ?p dcterms:identifier ?pid ;
+               rdfs:label ?plabel ;
+               rdfs:comment ?pcomment .
+          
+            ?mt rdfs:label ?mtlabel ;
+        }    
         """
-    print(sparql_update(q))
+    profiles = []
+    profile = None
+    profile_uri = None
+    default_mediatype = None
+    for row in sparql_query(q):
+        if profile_uri != row["p"]["value"]:
+            if profile_uri is not None:
+                profiles.append(profile)
+
+            profile_uri = row["p"]["value"]
+            profile = Profile(
+                uri=row["p"]["value"],
+                # id=row["pid"]["value"],  # TODO: why can't I use this inst var?
+                label=row["plabel"]["value"],
+                comment=row["pcomment"]["value"],
+                mediatypes=[],
+                default_mediatype=None
+            )
+        if row["r"]["value"] == row["dr"]["value"]:
+            default_mediatype = (row["mt"]["value"], row["mtlabel"]["value"])
+
+        if profile is not None:
+            profile.id = row["pid"]["value"]
+            profile.default_mediatype = default_mediatype
+            profile.mediatypes.append((row["mt"]["value"], row["mtlabel"]["value"]))
+    profiles.append(profile)
+
+    return profiles
+
+
+def get_timeline(id_or_uri: Union[str, URIRef]):
+    pass
+
+
+if __name__ == "__main__":
+    # q = """
+    #     PREFIX dcat: <http://www.w3.org/ns/dcat#>
+    #     PREFIX dcterms: <http://purl.org/dc/terms/>
+    #
+    #     INSERT {
+    #       GRAPH <http://inferred.com> {
+    #             ?r dcterms:isPartOf ?c .
+    #             ?c dcterms:hasPart ?r .
+    #         }
+    #     }
+    #     WHERE {
+    #         GRAPH ?g {
+    #           ?r a dcat:Resource .
+    #
+    #           ?c a dcat:Catalog .
+    #         }
+    #     }
+    #     """
+    # print(sparql_update(q))
+    print([x.uri for x in get_profiles("blah")])

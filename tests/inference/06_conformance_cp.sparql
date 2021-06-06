@@ -1,0 +1,14 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+INSERT {
+    GRAPH <https://inferred.com> {
+        ?r dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/>
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?r a dcat:Resource .
+    }
+}

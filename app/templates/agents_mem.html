@@ -1,18 +1,16 @@
 {% extends "page.html" %}
 {% block content %}
   <div>
-    <h1>Timelines</h1>
-    <p>{{ description|safe }}</p>
+    <h1>Agents</h1>
+    <p>The agents (People and Organisations) within this instance of TimePrez, presented as a list of links.</p>
   </div>
-  <div id="maincontent" style="margin-bottom:20px;">
+  <div id="maincontent">
     <div>
-      {% for member in members %}
-        <div style="border:solid 1px black; display:block; margin-top:20px; padding:10px;">
-          <p><a href="/timeline/{{ member["id"] }}">{{ member["title"] }}</a></p>
-          <p>{{ member["description"]|safe }}</p>
-          <p><a href="{{ member["publisher"][0] }}">{{ member["publisher"][1] }}</a></p>
-        </div>
-      {% endfor %}
+      <ul>
+        {% for member in members %}
+          <li><a href="/agent/{{ member["id"] }}">{{ member["name"] }}</a></li>
+        {% endfor %}
+      </ul>
     </div>
   </div>
   <script>

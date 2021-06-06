@@ -1,3 +1,4 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX sdo: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
@@ -5,6 +6,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://orcid.org/0000-0002-8742-7730>
   a sdo:Person ;
+  dcterms:identifier "car"^^xsd:token ;
   sdo:affiliation <https://linked.data.gov.au/org/surround> ;
   sdo:name "Nicholas J. Car" ;
   sdo:honorificPrefix "Dr" ;
@@ -14,12 +16,14 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/org/surround>
   a sdo:Organization ;
+  dcterms:identifier "surround"^^xsd:token ;
   sdo:name "SURROUND Australia Pty Ltd" ;
   sdo:url <https://surroundaustralia.com> ;
 .
 
 <https://orcid.org/0000-0002-3884-3420>
   a sdo:Person ;
+  dcterms:identifier "cox"^^xsd:token ;
   sdo:affiliation <https://linked.data.gov.au/org/csiro> ;
   sdo:name "Simon J D Cox" ;
   sdo:honorificPrefix "Dr" ;
@@ -29,6 +33,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/org/csiro>
   a sdo:Organization ;
+  dcterms:identifier "csiro"^^xsd:token ;
   sdo:name "Commonwealth Scientific Industrial Research Organisation" ;
   sdo:alternateName "CSIRO" ;
   sdo:url <https://www.csiro.au> ;
@@ -36,6 +41,7 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://linked.data.gov.au/org/ics>
   a sdo:Organization ;
+  dcterms:identifier "ics"^^xsd:token ;
   sdo:name "International Commission on Stratigraphy" ;
   sdo:alternateName "ICS" ;
   sdo:url <https://stratigraphy.org> ;

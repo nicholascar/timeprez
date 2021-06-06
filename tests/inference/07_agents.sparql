@@ -1,0 +1,15 @@
+PREFIX sdo: <https://schema.org/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+
+INSERT {
+    GRAPH <https://inferred.com> {
+        ?a a prov:Agent .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        {?a a sdo:Person}
+        UNION
+        {?a a sdo:Organization}
+    }
+}

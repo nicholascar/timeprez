@@ -1,7 +1,7 @@
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sdo: <https://schema.org/>
-PREFIX tx: <https://data.surroundaustralia.com/def/time-ext/>
+PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <http://resource.geosciml.org/vocabulary/timescale/isc2005>
@@ -18,5 +18,5 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 .
 
 <http://resource.geosciml.org/vocabulary/timescale/isc2005>
-  a tx:Timeline ;
+  a tl:Timeline ;
 .

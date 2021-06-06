@@ -1,0 +1,333 @@
+PREFIX altp: <http://www.w3.org/ns/dx/conneg/altr>
+PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcatp: <https://www.w3.org/TR/vocab-dcat/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX memp: <https://w3id.org/profile/members>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdop: <https://schema.org>
+PREFIX oasp: <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30>
+PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
+PREFIX tlp: <https://data.surroundaustralia.com/def/timeline>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+#
+#   Classes per ...
+#
+dcat:Catalog
+    altr:hasDefaultRepresentation _:dcatp-html ;
+    altr:hasRepresentation
+        _:dcatp-turtle ,
+        _:dcatp-xml ,
+        _:dcatp-jsonld ,
+        _:dcatp-n3 ,
+        _:dcatp-nt ,
+        _:dcatp-html ;
+.
+
+# Catalogue Items
+[] a rdf:Statement ;
+    rdf:subject dcat:Catalog ;
+    rdf:predicate dcterms:hasPart ;
+    rdf:object dcat:Resource ;
+    altr:hasDefaultRepresentation _:memp-html ;
+    altr:hasRepresentation
+        _:dcatp-turtle ,
+        _:dcatp-xml ,
+        _:dcatp-jsonld ,
+        _:dcatp-n3 ,
+        _:dcatp-nt ,
+        _:dcatp-html ,
+        _:memp-turtle ,
+        _:memp-xml ,
+        _:memp-jsonld ,
+        _:memp-n3 ,
+        _:memp-nt ,
+        _:memp-html ;
+.
+
+dcat:Resource
+    altr:hasDefaultRepresentation _:dcatp-html ;
+    altr:hasRepresentation
+        _:dcatp-turtle ,
+        _:dcatp-xml ,
+        _:dcatp-jsonld ,
+        _:dcatp-n3 ,
+        _:dcatp-nt ,
+        _:dcatp-html ;
+.
+
+tl:Timeline
+    altr:hasDefaultRepresentation _:tl-html ;
+    altr:hasRepresentation
+        _:tl-turtle ,
+        _:tl-xml ,
+        _:tl-jsonld ,
+        _:tl-n3 ,
+        _:tl-nt ,
+        _:tl-html ,
+        _:memp-turtle ,
+        _:memp-xml ,
+        _:memp-jsonld ,
+        _:memp-n3 ,
+        _:memp-nt ,
+        _:memp-html ;
+.
+
+# Catalogue Agents
+[] a rdf:Statement ;
+    rdf:subject dcat:Catalog ;
+    rdf:predicate dcterms:hasPart ;
+    rdf:object dcat:Resource ;
+    altr:hasDefaultRepresentation _:memp-html ;
+    altr:hasRepresentation
+        _:sdop-turtle ,
+        _:sdop-xml ,
+        _:sdop-jsonld ,
+        _:sdop-n3 ,
+        _:sdop-nt ,
+        _:sdop-html ,
+        _:memp-turtle ,
+        _:memp-xml ,
+        _:memp-jsonld ,
+        _:memp-n3 ,
+        _:memp-nt ,
+        _:memp-html ;
+.
+
+prov:Agent
+    altr:hasDefaultRepresentation _:sdop-html ;
+    altr:hasRepresentation
+        _:sdop-turtle ,
+        _:sdop-xml ,
+        _:sdop-jsonld ,
+        _:sdop-n3 ,
+        _:sdop-nt ,
+        _:sdop-html ;
+.
+
+#
+#   Profiles
+#
+dcatp:
+    a prof:Profile ;
+    rdfs:label "DCAT" ;
+    rdfs:comment "Dataset Catalogue Vocabulary (DCAT) is a W3C-authored RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web." ;
+    dcterms:identifier "dcat"^^xsd:token ;
+.
+
+memp:
+    rdfs:label "Members" ;
+    rdfs:comment "A simple listing of members of a container" ;
+    dcterms:identifier "mem"^^xsd:token ;
+.
+
+oasp:
+    a prof:Profile ;
+    rdfs:label "OpenAPI 3.0" ;
+    rdfs:comment "The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection." ;
+    dcterms:identifier "oas"^^xsd:token ;
+.
+
+sdop:
+    a prof:Profile ;
+    rdfs:label "Time Ontology Extension" ;
+    rdfs:comment "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects" ;
+    dcterms:identifier "timex"^^xsd:token ;
+.
+
+tlp:
+    a prof:Profile ;
+    rdfs:label "Timeline Ontology" ;
+    rdfs:comment "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects into specialised datasets (Timelines)" ;
+    dcterms:identifier "timeline"^^xsd:token ;
+.
+
+
+#
+#   Media Types
+#
+<https://w3id.org/mediatype/application/vnd.oai.openapi+json;version=3.0>
+    a dcterms:MediaType ;
+    rdfs:label "OAS JSON" ;
+    dcterms:identifier "application/vnd.oai.openapi+json;version=3.0"^^xsd:token ;
+.
+#
+#   Representations
+#
+#   DCAT
+_:dcatp-turtle
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+_:dcatp-xml
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+_:dcatp-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+_:dcatp-n3
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+_:dcatp-nt
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+_:dcatp-html
+    a altr:Representation ;
+    dcterms:conformsTo dcatp: ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+#   Mem
+_:memp-turtle
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+_:memp-xml
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+_:memp-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+_:memp-n3
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+_:memp-nt
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+_:memp-html
+    a altr:Representation ;
+    dcterms:conformsTo memp: ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+# Open API
+_:oasp-html
+    a altr:Representation ;
+    dcterms:conformsTo oasp: ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+_:oasp-geojson
+    a altr:Representation ;
+    dcterms:conformsTo oasp: ;
+    dcterms:format <https://w3id.org/mediatype/application/geo+json> ;
+.
+
+_:oasp-json
+    a altr:Representation ;
+    dcterms:conformsTo oasp: ;
+    dcterms:format <https://w3id.org/mediatype/application/json> ;
+.
+
+_:oasp-oasp-json
+    a altr:Representation ;
+    dcterms:conformsTo oasp: ;
+    dcterms:format <https://w3id.org/mediatype/application/vnd.oai.openapi+json;version=3.0> ;
+.
+
+#   SDO
+_:sdop-turtle
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+_:sdop-xml
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+_:sdop-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+_:sdop-n3
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+_:sdop-nt
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+_:sdop-html
+    a altr:Representation ;
+    dcterms:conformsTo sdop: ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+# Time X
+_:tl-turtle
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+_:tl-xml
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+_:tl-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+_:tl-n3
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+_:tl-nt
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+_:tl-html
+    a altr:Representation ;
+    dcterms:conformsTo tlp: ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.

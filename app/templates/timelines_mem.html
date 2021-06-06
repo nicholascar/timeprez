@@ -2,12 +2,13 @@
 {% block content %}
   <div>
     <h1>Timelines</h1>
+    <p>{{ description|safe }}</p>
   </div>
   <div id="maincontent">
     <div>
       <ul>
         {% for member in members %}
-          <li><a href="{{ member[0] }}">{{ member[1] }}</a></li>
+          <li><a href="/timeline/{{ member["id"] }}">{{ member["title"] }}</a></li>
         {% endfor %}
       </ul>
     </div>

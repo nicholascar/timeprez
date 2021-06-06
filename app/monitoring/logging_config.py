@@ -1,5 +1,4 @@
-import os
-import uuid
+from uuid import UUID
 import logging
 import json
 
@@ -59,7 +58,8 @@ def configure_logging(level='DEBUG', service=None, instance=None):
         'version': 1,
         'formatters': {'default': {
             '()': JsonLogFormatter,
-            'format': '%(timestamp)s %(level)s %(service)s %(instance)s %(type)s %(message)s',
+            # 'format': '%(timestamp)s %(message)s %(level)s %(service)s %(instance)s %(type)s',
+            'format': '%(timestamp)s %(level)s %(message)s',
             'json_encoder': ModelJsonEncoder
         }},
         'filters': {'default': {

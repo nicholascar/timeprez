@@ -1,0 +1,15 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+
+INSERT {
+    GRAPH <https://inferred.com> {
+        ?d a dcat:Distribution .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        VALUES ?dist_type { dcat:Distribution dcat:DataService }
+        ?d a ?dist_type
+    }
+}
