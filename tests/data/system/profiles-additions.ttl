@@ -82,7 +82,7 @@ tl:Timeline
 [] a rdf:Statement ;
     rdf:subject dcat:Catalog ;
     rdf:predicate dcterms:hasPart ;
-    rdf:object dcat:Resource ;
+    rdf:object sdo:Agent ;
     altr:hasDefaultRepresentation _:memp-html ;
     altr:hasRepresentation
         _:sdop-turtle ,
@@ -100,6 +100,17 @@ tl:Timeline
 .
 
 prov:Agent
+    altr:hasDefaultRepresentation _:sdop-html ;
+    altr:hasRepresentation
+        _:sdop-turtle ,
+        _:sdop-xml ,
+        _:sdop-jsonld ,
+        _:sdop-n3 ,
+        _:sdop-nt ,
+        _:sdop-html ;
+.
+
+<http://example.com/ConformancePage>
     altr:hasDefaultRepresentation _:sdop-html ;
     altr:hasRepresentation
         _:sdop-turtle ,

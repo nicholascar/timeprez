@@ -46,8 +46,7 @@ class LandingPageRenderer(Renderer):
         self.request = request
         super().__init__(request,
                          self.request.base_url,
-                         {"dcat": dcat},
-                         "dcat",
+                         utils.get_profiles("http://www.w3.org/ns/dcat#Catalog"),
                          MEDIATYPE_NAMES=MEDIATYPE_NAMES)
 
         # make links
@@ -186,9 +185,7 @@ class ConformanceRenderer(Renderer):
         super().__init__(
             request,
             LANDING_PAGE_URL + "/conformance",
-            {"oai": openapi},
-            "oai",
-            MEDIATYPE_NAMES=MEDIATYPE_NAMES
+            utils.get_profiles("http://example.com/ConformancePage")
         )
 
     def render(self):
