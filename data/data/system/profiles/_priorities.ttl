@@ -1,0 +1,72 @@
+PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX catprez: <http://w3id.org/profile/catprez/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
+PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
+
+
+[]
+    rdfs:label "Timelines Prioritization" ;
+    prof:hasClassPrioritization (
+        tl:Timeline
+        dcat:Resource
+        rdf:Resource
+    ) ;
+.
+
+[]
+    rdfs:label "Catalog Prioritization" ;
+    prof:hasClassPrioritization (
+        dcat:Catalog
+        rdf:Resource
+    ) ;
+.
+
+[]
+    rdfs:label "Agent Prioritization" ;
+    prof:hasClassPrioritization (
+        sdo:Agent
+        rdf:Resource
+    ) ;
+.
+
+[]
+    rdfs:label "Conformance Page Prioritization" ;
+    prof:hasClassPrioritization (
+        catprez:ConformancePage
+        rdf:Resource
+    ) ;
+.
+
+
+
+[]
+    rdfs:label "DCAT Resource Prioritization" ;
+    prof:hasClassPrioritization (
+        dcat:Resource
+        rdf:Resource
+    ) ;
+.
+
+
+
+[]
+    rdfs:label "Agents Prioritization" ;
+    prof:hasClassPrioritization (
+        catprez:agents
+        catprez:list
+    ) ;
+.
+
+
+[]
+    rdfs:label "DCAT Resources Prioritization" ;
+    prof:hasClassPrioritization (
+        catprez:resources
+        catprez:list
+    ) ;
+.

@@ -4,19 +4,19 @@ PREFIX sdo: <https://schema.org/>
 PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
-<http://resource.geosciml.org/vocabulary/timescale/isc2010/>
+<http://resource.geosciml.org/vocabulary/timescale/gts2020>
   a dcat:Resource ;
-  dcterms:identifier "isc2010" ;
-  dcterms:title "International Stratigraphic Chart (2010)"@en ;
+  dcterms:identifier "gts2020" ;
+  dcterms:title "Geologic Time Scale (2020)"@en ;
   dcterms:description "RDF representation of the Geologic Time Scale, as defined in the International Chronostratigraphic Chart (ICC) from the International Commission on Stratigraphy (ICS). The ICC embraces both chronostratigraphic (time-rock) units and their equivalent geochronologic (geologic-time) units, the former being related to the ‘Stratigraphic points’ referred to below, and the latter (geochronologic units) being employed in this RDF representation."@en ;
   dcterms:creator <https://orcid.org/0000-0002-3884-3420> ;
-  dcterms:created "2010"^^xsd:gYear ;
+  dcterms:created "2020-06-05"^^xsd:date ;
   dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-  dcterms:modified "2021-05-31"^^xsd:date ;
+  dcterms:modified "2020-10-21"^^xsd:date ;
   dcterms:publisher <https://linked.data.gov.au/org/ics> ;
   sdo:codeRepository "https://github.com/CGI-IUGS/timescale-data"^^xsd:anyURI ;
 .
 
-<http://resource.geosciml.org/vocabulary/timescale/isc2010>
+<http://resource.geosciml.org/vocabulary/timescale/gts2020>
   a tl:Timeline ;
 .

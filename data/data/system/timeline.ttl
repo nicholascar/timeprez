@@ -1,5 +1,6 @@
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
 

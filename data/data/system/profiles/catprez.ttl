@@ -1,17 +1,16 @@
 PREFIX altp: <http://www.w3.org/ns/dx/conneg/altr>
 PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX catprez: <http://w3id.org/profile/catprez/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcatp: <https://www.w3.org/TR/vocab-dcat/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX memp: <https://w3id.org/profile/members>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
-PREFIX prov: <http://www.w3.org/ns/prov#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sdo: <https://schema.org/>
 PREFIX sdop: <https://schema.org>
 PREFIX oasp: <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30>
-PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
-PREFIX tlp: <https://data.surroundaustralia.com/def/timeline>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
@@ -30,7 +29,8 @@ dcat:Catalog
 .
 
 # Catalogue Items
-[] a rdf:Statement ;
+catprez:resources
+    a rdf:Statement ;
     rdf:subject dcat:Catalog ;
     rdf:predicate dcterms:hasPart ;
     rdf:object dcat:Resource ;
@@ -61,25 +61,9 @@ dcat:Resource
         _:dcatp-html ;
 .
 
-tl:Timeline
-    altr:hasDefaultRepresentation _:tl-html ;
-    altr:hasRepresentation
-        _:tl-turtle ,
-        _:tl-xml ,
-        _:tl-jsonld ,
-        _:tl-n3 ,
-        _:tl-nt ,
-        _:tl-html ,
-        _:memp-turtle ,
-        _:memp-xml ,
-        _:memp-jsonld ,
-        _:memp-n3 ,
-        _:memp-nt ,
-        _:memp-html ;
-.
-
 # Catalogue Agents
-[] a rdf:Statement ;
+catprez:agents
+    a rdf:Statement ;
     rdf:subject dcat:Catalog ;
     rdf:predicate dcterms:hasPart ;
     rdf:object sdo:Agent ;
@@ -99,7 +83,7 @@ tl:Timeline
         _:memp-html ;
 .
 
-prov:Agent
+sdo:Agent
     altr:hasDefaultRepresentation _:sdop-html ;
     altr:hasRepresentation
         _:sdop-turtle ,
@@ -110,7 +94,7 @@ prov:Agent
         _:sdop-html ;
 .
 
-<http://example.com/ConformancePage>
+catprez:ConformancePage
     altr:hasDefaultRepresentation _:sdop-html ;
     altr:hasRepresentation
         _:sdop-turtle ,
@@ -151,22 +135,15 @@ sdop:
     dcterms:identifier "timex"^^xsd:token ;
 .
 
-tlp:
-    a prof:Profile ;
-    rdfs:label "Timeline Ontology" ;
-    rdfs:comment "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects into specialised datasets (Timelines)" ;
-    dcterms:identifier "timeline"^^xsd:token ;
-.
-
-
 #
 #   Media Types
 #
 <https://w3id.org/mediatype/application/vnd.oai.openapi+json;version=3.0>
     a dcterms:MediaType ;
-    rdfs:label "OAS JSON" ;
+    rdfs:label "OAI JSON" ;
     dcterms:identifier "application/vnd.oai.openapi+json;version=3.0"^^xsd:token ;
 .
+
 #
 #   Representations
 #
@@ -303,42 +280,5 @@ _:sdop-nt
 _:sdop-html
     a altr:Representation ;
     dcterms:conformsTo sdop: ;
-    dcterms:format <https://w3id.org/mediatype/text/html> ;
-.
-
-# Time X
-_:tl-turtle
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
-    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
-.
-
-_:tl-xml
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
-    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
-.
-
-_:tl-jsonld
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
-    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
-.
-
-_:tl-n3
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
-    dcterms:format <https://w3id.org/mediatype/text/n3> ;
-.
-
-_:tl-nt
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
-    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
-.
-
-_:tl-html
-    a altr:Representation ;
-    dcterms:conformsTo tlp: ;
     dcterms:format <https://w3id.org/mediatype/text/html> ;
 .

@@ -26,7 +26,7 @@ else:
 print(f"Loading items & system data into {SPARQL_ENDPOINT}")
 
 # load all turtle files in ./items/* & ./system/*
-for f in Path(__file__).parent.glob("items/*.ttl"):
+for f in Path(Path(__file__).parent, "items").rglob("*.ttl"):
     print("loading {}".format(f))
     r = httpx.post(
         SPARQL_ENDPOINT,
@@ -41,7 +41,7 @@ for f in Path(__file__).parent.glob("items/*.ttl"):
         print(r.status_code)
         print(r.text)
 
-for f in Path(__file__).parent.glob("system/*.ttl"):
+for f in Path(Path(__file__).parent / "system").rglob("*.ttl"):
     print("loading {}".format(f))
     r = httpx.post(
         SPARQL_ENDPOINT,
