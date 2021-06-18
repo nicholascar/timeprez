@@ -6,7 +6,7 @@ import markdown
 from fastapi import Request, Response, HTTPException
 from fastapi.responses import HTMLResponse, JSONResponse
 from fastapi.templating import Jinja2Templates
-from pyldapi.fastapi_framework import Renderer
+from pyldapi import Renderer
 import utils
 from api.link import *
 from config import LANDING_PAGE_URL
@@ -591,6 +591,10 @@ async def agent(id, request: Request):
 
         # return RedirectResponse(url=f"/object?uri={uri}")
         return HTMLResponse(f"Agent {uri}")
+
+
+class AgentRender():
+    pass
 
 
 @router.get("/object")

@@ -9,7 +9,7 @@ from rdflib import Graph, Namespace, URIRef, BNode, Literal
 from rdflib.namespace import PROF, RDF, RDFS, XSD
 from rdflib.namespace import DCTERMS
 from profile import Profile
-from exceptions import ProfilesMediatypesException
+from .exceptions import ProfilesMediatypesException
 import re
 import connegp
 
@@ -43,40 +43,17 @@ class Renderer(object, metaclass=ABCMeta):
                  request,
                  instance_uri,
                  profiles,
-                 default_profile_token,
                  alternates_template=None,
                  **kwargs
                  ):
-        """
-        Constructor
-
-        :param request: Flask request object that triggered this class object's creation.
-        :type request: :class:`flask.request`
-        :param instance_uri: The URI that triggered this API endpoint (can be via redirects but the main URI is needed).
-        :type instance_uri: str
-        :param profiles: A dictionary of profiles available for this resource.
-        :type profiles: dict (of :class:`.View` class objects)
-        :param default_profile_token: The ID of the default profile (key of a profile in the dictionary of :class:
-        `.Profile` objects)
-        :type default_profile_token: str (a key in profiles)
-        :param alternates_template: The Jinja2 template to use for rendering the HTML *alternates view*. If None, then
-        it will default to try and use a template called :code:`alternates.html`.
-        :type alternates_template: str
-
-        .. seealso:: See the :class:`.View` class on how to create a dictionary of profiles.
-
-        """
         self.vf_error = None
         self.request = request
         self.instance_uri = instance_uri
 
-        # self.mediatype_names = kwargs.get('MEDIATYPE_NAMES')
-        self.local_uris = kwargs.get('LOCAL_URIS')
-
         # ensure alternates token isn't hogged by user
         for k, v in profiles.items():
-            if k == 'alternates':
-                self.vf_error = 'You must not manually add a profile with token \'alternates\' as this is auto-created.'
+            if k == 'alt':
+                self.vf_error = 'You must not manually add a profile with token \'alt\' as this is auto-created.'
 
         self.profiles = profiles
         # auto-add in an Alternates profile

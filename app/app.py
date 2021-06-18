@@ -7,12 +7,9 @@ import uvicorn
 import uuid
 import logging
 from config import *
-from pyldapi.fastapi_framework import renderer, renderer_container
-# from utils import utils
 
 from starlette.staticfiles import StaticFiles
 from starlette.middleware.cors import CORSMiddleware
-from routes import router
 from monitoring import logging_config
 from middlewares.correlation_id_middleware import CorrelationIdMiddleware
 from middlewares.logging_middleware import LoggingMiddleware
