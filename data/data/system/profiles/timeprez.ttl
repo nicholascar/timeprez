@@ -3,7 +3,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX memp: <https://w3id.org/profile/members>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
-PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
+PREFIX tl: <https://w3id.org/profile/timeline/>
 PREFIX tlp: <https://data.surroundaustralia.com/def/timeline>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 

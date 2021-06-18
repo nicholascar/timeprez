@@ -1,0 +1,26 @@
+PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX profx: <https://w3id.org/profile/profx/>
+PREFIX tl: <https://w3id.org/profile/timeline/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?c
+WHERE {
+  # Get the classes of an NI
+  <http://resource.geosciml.org/vocabulary/timescale/isc2010> a ?c .
+
+  # For each of the NI's classes, find their priorities in the various PrioritizationSets
+  # and the priorities of the PrioritizationSets
+  ?prioritization_set
+    rdfs:label ?l ;
+    profx:priority ?set_priority ;
+  	profx:hasPrioritizedClass ?p .
+  ?p profx:class ?c ;
+     profx:priority ?priority .
+}
+# Order by PrioritizationSet priority first, then class priority
+ORDER BY ?set_priority ?priority
+# We only want one result - the default class
+LIMIT 1

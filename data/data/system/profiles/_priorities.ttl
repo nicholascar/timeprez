@@ -3,70 +3,111 @@ PREFIX catprez: <http://w3id.org/profile/catprez/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX profx: <https://w3id.org/profile/profx/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX sdo: <https://schema.org/>
-PREFIX tl: <https://data.surroundaustralia.com/def/timeline/>
+PREFIX tl: <https://w3id.org/profile/timeline/>
 
 
 []
+    a profx:PrioritizationSet ;
+    profx:priority 1 ;
     rdfs:label "Timelines Prioritization" ;
-    prof:hasClassPrioritization (
-        tl:Timeline
-        dcat:Resource
-        rdf:Resource
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class tl:Timeline ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class dcat:Resource ;
+        profx:priority 2 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
 []
+    a profx:PrioritizationSet ;
+    profx:priority 2 ;
     rdfs:label "Catalog Prioritization" ;
-    prof:hasClassPrioritization (
-        dcat:Catalog
-        rdf:Resource
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class dcat:Catalog ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
 []
+    a profx:PrioritizationSet ;
+    profx:priority 3 ;
     rdfs:label "Agent Prioritization" ;
-    prof:hasClassPrioritization (
-        sdo:Agent
-        rdf:Resource
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class sdo:Agent ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
 []
+    a profx:PrioritizationSet ;
+    profx:priority 4 ;
     rdfs:label "Conformance Page Prioritization" ;
-    prof:hasClassPrioritization (
-        catprez:ConformancePage
-        rdf:Resource
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class catprez:ConformancePage ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
-
-
 []
+    a profx:PrioritizationSet ;
+    profx:priority 5 ;
     rdfs:label "DCAT Resource Prioritization" ;
-    prof:hasClassPrioritization (
-        dcat:Resource
-        rdf:Resource
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class dcat:Resource ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
-
-
 []
+    a profx:PrioritizationSet ;
+    profx:priority 6 ;
     rdfs:label "Agents Prioritization" ;
-    prof:hasClassPrioritization (
-        catprez:agents
-        catprez:list
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class catprez:agents ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
 
-
 []
+    a profx:PrioritizationSet ;
+    profx:priority 7 ;
     rdfs:label "DCAT Resources Prioritization" ;
-    prof:hasClassPrioritization (
-        catprez:resources
-        catprez:list
-    ) ;
+    profx:hasPrioritizedClass [
+        profx:class catprez:resources ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
 .
