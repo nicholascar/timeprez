@@ -1,5 +1,6 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX profx: <https://w3id.org/profile/profx/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <https://www.w3.org/TR/vocab-dcat/>
@@ -7,4 +8,5 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:identifier "dcat"^^xsd:token ;
     dcterms:title "DCAT" ;
     dcterms:description "Dataset Catalogue Vocabulary (DCAT) is a W3C-authored RDF vocabulary designed to facilitate interoperability between data catalogs published on the Web" ;
+    profx:hasDefaultMediatype <https://w3id.org/mediatype/text/html> ;
 .

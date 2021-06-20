@@ -1,5 +1,6 @@
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX profx: <https://w3id.org/profile/profx/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 
@@ -8,4 +9,5 @@ PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
     dcterms:identifier "timeline"^^xsd:token ;
     dcterms:title "Timeline Ontology" ;
     dcterms:description "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects into specialised datasets (Timelines)" ;
+    profx:hasDefaultMediatype <https://w3id.org/mediatype/text/html> ;
 .
