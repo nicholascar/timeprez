@@ -26,11 +26,11 @@ else:
 print(f"Loading items & system data into {SPARQL_ENDPOINT}")
 
 # load all turtle files in ./items/* & ./system/*
-for f in Path(Path(__file__).parent, "items").rglob("*.ttl"):
+for f in Path(Path(__file__).parent / "data" / "catalog").rglob("*.ttl"):
     print("loading {}".format(f))
     r = httpx.post(
         SPARQL_ENDPOINT,
-        params={"graph": "https://items.com"},
+        params={"graph": "urn:local:catalog"},
         headers={"Content-Type": "text/turtle"},
         content=open(Path(__file__).parent / f, "rb").read(),
         auth=(SPARQL_USERNAME, SPARQL_PASSWORD)
@@ -41,11 +41,11 @@ for f in Path(Path(__file__).parent, "items").rglob("*.ttl"):
         print(r.status_code)
         print(r.text)
 
-for f in Path(Path(__file__).parent / "system").rglob("*.ttl"):
+for f in Path(Path(__file__).parent / "data" / "system").rglob("*.ttl"):
     print("loading {}".format(f))
     r = httpx.post(
         SPARQL_ENDPOINT,
-        params={"graph": "https://system.com"},
+        params={"graph": "urn:local:system"},
         headers={"Content-Type": "text/turtle"},
         content=open(Path(__file__).parent / f, "rb").read(),
         auth=(SPARQL_USERNAME, SPARQL_PASSWORD)

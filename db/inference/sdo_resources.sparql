@@ -1,0 +1,52 @@
+# Makes a schema.org profile of the DCAT Catalog
+# Indicate conformance to DCAT too
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        # Resources as SDO
+        ?r
+            dcterms:conformsTo <https://schema.org> ;
+            a sdo:CreativeWork ;
+            sdo:identifier ?identifier ;
+            sdo:name ?title ;
+            sdo:description ?description ;
+            sdo:creator ?creator ;
+            sdo:dateCreated ?created ;
+            sdo:license ?license ;
+            sdo:dateModified ?modified ;
+            sdo:publisher ?publisher ;
+            sdo:codeRepository ?repo_url ;
+        .
+
+        # Resource DCAT conformance
+        ?r dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?r
+            a dcat:Resource ;
+            dcterms:identifier ?identifier ;
+            dcterms:title ?title ;
+            dcterms:description ?description ;
+            dcterms:creator ?creator ;
+            dcterms:created ?created ;
+            dcterms:license ?license ;
+            dcterms:modified ?modified ;
+            dcterms:publisher ?publisher ;
+            OPTIONAL {
+                ?r
+                    dcat:distribution [
+                        dcat:accessURL ?repo_url
+                    ] ;
+                .
+            }
+        .
+
+    }
+}

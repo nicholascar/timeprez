@@ -1,17 +1,21 @@
+# Link each Resource to Catalog
+# Link Catalog to all Resources
+# Links system services to each Item as Distributions
+
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX sdo: <https://schema.org/>
 PREFIX sys: <https://localhost:5000/>
 
-
 INSERT {
-    GRAPH <https://inferred.com> {
+    GRAPH <urn:local:inferred> {
         ?r a dcat:Resource ;
            dcat:distribution  sys: , sys:sparql , ?cr .
 
         ?cr dcterms:title ?cr_title .
 
         ?c dcterms:hasPart ?r .
+        ?r dcterms:isPartOf ?c .
     }
 }
 WHERE {

@@ -1,0 +1,44 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX prez: <http://w3id.org/profile/prez/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX profx: <https://w3id.org/profile/profx/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tl: <https://w3id.org/profile/timeline/>
+
+
+[]
+    a profx:PrioritizationSet ;
+    rdfs:member [
+        profx:class tl:Timeline ;
+        profx:priority 1 ;
+    ] ,
+    [
+        profx:class dcat:Catalog ;
+        profx:priority 2 ;
+    ] ,
+    [
+        profx:class dcat:Resource ;
+        profx:priority 3 ;
+    ] ,
+    [
+        profx:class dcat:DataService ;
+        profx:priority 4 ;
+    ] ,
+    [
+        profx:class dcat:Distribution ;
+        profx:priority 5 ;
+    ] ,
+    [
+        profx:class foaf:Agent ;
+        profx:priority 6 ;
+    ] ,
+    [
+        profx:class prez:ConformancePage ;
+        profx:priority 7 ;
+    ] ,
+    [
+        profx:class rdf:Resource ;
+        profx:priority 99 ;
+    ] ;
+.

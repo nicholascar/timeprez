@@ -1,0 +1,42 @@
+PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prez: <https://w3id.org/profile/prez/>
+
+#
+#   DCAT
+#
+prez:dcatp-turtle
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+prez:dcatp-xml
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+prez:dcatp-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+prez:dcatp-n3
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+prez:dcatp-nt
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+prez:dcatp-html
+    a altr:Representation ;
+    dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.

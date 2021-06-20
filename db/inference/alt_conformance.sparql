@@ -1,0 +1,24 @@
+# Infer each Known Class conforms to ALTR
+# this must be run last/late so that any class inference is carried out first
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        ?r dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        VALUES ?c {
+            dcat:Catalog
+            dcat:Resource
+            dcat:Distribution
+            dcterms:Agent
+        }
+        ?r a ?c .
+    }
+}

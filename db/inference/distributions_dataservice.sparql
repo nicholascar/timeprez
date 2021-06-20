@@ -1,9 +1,11 @@
+# Class each DataService as a Distribution
+
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 
 INSERT {
-    GRAPH <https://inferred.com> {
+    GRAPH <urn:local:inferred> {
         ?d a dcat:Distribution .
     }
 }

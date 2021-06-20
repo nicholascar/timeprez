@@ -1,0 +1,31 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prof: <http://www.w3.org/ns/dx/prof/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+<http://www.w3.org/ns/dx/conneg/altr>
+    a prof:Profile ;
+    dcterms:identifier "alt"^^xsd:token ;
+    dcterms:title "Alternate Representations" ;
+    dcterms:description "The representation of the resource that lists all other representations (profiles and Media Types)" ;
+.
+
+<https://w3id.org/profile/mem>
+    a prof:Profile ;
+    dcterms:identifier "mem"^^xsd:token ;
+    dcterms:title "Members" ;
+    dcterms:description "A simple listing of members within a Container/Collection" ;
+.
+
+<http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30>
+    a prof:Profile ;
+    dcterms:identifier "oas"^^xsd:token ;
+    dcterms:title "OpenAPI 3.0" ;
+    dcterms:description "The OpenAPI Specification (OAS) defines a standard, language-agnostic interface to RESTful APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection." ;
+.
+
+<https://schema.org>
+    a prof:Profile ;
+    dcterms:identifier "timex"^^xsd:token ;
+    dcterms:title "Time Ontology Extension" ;
+    dcterms:description "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects" ;
+.

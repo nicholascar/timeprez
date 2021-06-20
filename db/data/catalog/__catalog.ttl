@@ -1,13 +1,12 @@
-PREFIX catprez: <https://w3id.org/profile/catprez/>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX sdo: <https://schema.org/>
-
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 
 <http://resource.geosciml.org/catalogue/timescales>
     a dcat:Catalog ;
     dcterms:title "Timescales Catalogue"@en ;
     dcterms:description """This is a catalogue of timescales. Timescales are vocabularies of temporal entities - periods of time, time instants etc."""@en ;
-    dcterms:publisher <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:creator <https://orcid.org/0000-0002-8742-7730> ;
+    dcterms:publisher <https://linked.data.gov.au/org/ics> ;
+    dcterms:created "2021-06-19"^^xsd:date ;
 .
-

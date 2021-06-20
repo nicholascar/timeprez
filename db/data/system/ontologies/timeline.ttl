@@ -1,0 +1,18 @@
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX tl: <https://w3id.org/profile/timeline/>
+
+<https://w3id.org/profile/timeline>
+    a owl:Ontology ;
+    dcterms:title "Timeline Ontology" ;
+    dcterms:description "An ontology and profile of OWL Time that adds a few classes to assist with packaging temporal objects into specialised datasets (Timelines)" ;
+.
+
+tl:Timeline
+    a owl:Class ;
+    rdfs:subClassOf dcat:Dataset ;
+    dcterms:title "Timeline" ;
+    dcterms:description "A Timeline is a Dataset containing instances of temporal entities";
+.

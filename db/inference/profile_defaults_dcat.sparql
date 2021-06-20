@@ -1,0 +1,24 @@
+# Indicate a default profile for each Known Class
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX profx: <https://w3id.org/profile/profx/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        ?r profx:hasDefaultProfile <https://www.w3.org/TR/vocab-dcat/> .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        VALUES ?c {
+            dcat:Catalog
+            dcat:Resource
+            dcat:Distribution
+
+        }
+        ?r a ?c .
+    }
+}

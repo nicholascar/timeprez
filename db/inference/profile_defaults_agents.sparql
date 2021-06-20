@@ -1,0 +1,19 @@
+# Indicate a default profile for each Known Class
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX profx: <https://w3id.org/profile/profx/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        ?a profx:hasDefaultProfile <http://xmlns.com/foaf/spec/> .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?a a dcterms:Agent .
+    }
+}

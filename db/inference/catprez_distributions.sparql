@@ -1,10 +1,12 @@
+# Links system services to Catalog as Distributions
+
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX cp: <https://w3id.org/profile/catprez/>
 PREFIX sys: <https://localhost:5000/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 INSERT {
-    GRAPH <https://inferred.com> {
+    GRAPH <urn:local:inferred> {
         ?s dcat:distribution sys: , sys:sparql .
 
         sys:
@@ -23,7 +25,7 @@ INSERT {
     }
 }
 WHERE {
-    GRAPH <https://system.com> {
+    GRAPH ?g {
         ?s a dcat:Catalog ;
            ?p ?o ;
            dcterms:title ?title .

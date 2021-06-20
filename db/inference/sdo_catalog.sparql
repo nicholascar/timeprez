@@ -1,0 +1,43 @@
+# Makes a schema.org profile of the DCAT Catalog
+# Indicate conformance to DCAT too
+
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        # Catalog as SDO
+        ?c
+            dcterms:conformsTo <https://schema.org> ;
+            a sdo:CreativeWork ;
+            sdo:name ?title ;
+            sdo:description ?description ;
+            sdo:creator ?creator ;
+            sdo:dateCreated ?created ;
+            sdo:dateModified ?modified ;
+            sdo:publisher ?publisher ;
+        .
+
+        # Catalog DCAT conformance
+        ?c
+            dcterms:conformsTo <https://www.w3.org/TR/vocab-dcat/> ;
+            dcterms:modified ?modified
+        .
+    }
+}
+WHERE {
+    GRAPH ?g {
+        ?c
+            a dcat:Catalog ;
+            dcterms:title ?title ;
+            dcterms:description ?description ;
+            dcterms:creator ?creator ;
+            dcterms:created ?created ;
+            dcterms:publisher ?publisher ;
+        .
+
+        BIND (NOW() as ?modified)
+    }
+}

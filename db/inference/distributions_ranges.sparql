@@ -1,9 +1,10 @@
+# Class each range value of dcat:distribution as a dcat:Distribution
+
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-
 INSERT {
-    GRAPH <https://inferred.com> {
+    GRAPH <urn:local:inferred> {
   	    ?r dcat:distribution ?d .
         ?d a dcat:Distribution .
     }

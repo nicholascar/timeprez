@@ -1,0 +1,66 @@
+# Makes a schema.org profile of the DCAT Resources
+# Indicate conformance to DCAT too
+
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX sdo: <https://schema.org/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+INSERT {
+    GRAPH <urn:local:inferred> {
+        ?p
+            dcterms:conformsTo <https://schema.org> ;
+            a sdo:Person ;
+            sdo:identifier ?identifier ;
+            sdo:name ?name ;
+            sdo:affiliation ?memberOf ;
+            sdo:honorificPrefix ?title ;
+            sdo:email ?mbox ;
+        .
+
+        ?o
+            dcterms:conformsTo <https://schema.org> ;
+            a sdo:Organization ;
+            sdo:identifier ?org_identifier ;
+            sdo:name ?org_name ;
+            sdo:alternateName ?nick ;
+            sdo:url ?homepage ;
+        .
+
+        # DCTERMS Agent & FOAF conformance
+        ?p a dcterms:Agent .
+        ?o a dcterms:Agent .
+        ?p dcterms:conformsTo <http://xmlns.com/foaf/spec/> .
+        ?o dcterms:conformsTo <http://xmlns.com/foaf/spec/> .
+    }
+}
+
+WHERE {
+    GRAPH ?g {
+        ?p
+            a foaf:Person ;
+            dcterms:identifier ?identifier ;
+            foaf:name ?name ;
+        .
+        OPTIONAL {
+            ?p
+                org:memberOf ?memberOf ;
+                foaf:title ?title ;
+                foaf:mbox ?mbox ;
+            .
+        }
+
+        ?o
+            a foaf:Organization ;
+            dcterms:identifier ?org_identifier ;
+            foaf:name ?org_name ;
+        .
+        OPTIONAL {
+            ?o
+                foaf:nick ?nick ;
+                foaf:homepage ?homepage ;
+            .
+        }
+    }
+}

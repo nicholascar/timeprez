@@ -1,0 +1,153 @@
+PREFIX altr: <http://www.w3.org/ns/dx/conneg/altr#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX prez: <https://w3id.org/profile/prez/>
+
+#
+#   AltR
+#
+prez:altp-turtle
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+prez:altp-xml
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+prez:altp-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+prez:altp-json
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/application/json> ;
+.
+
+prez:altp-n3
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+prez:altp-nt
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+prez:altp-html
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.w3.org/ns/dx/conneg/altr> ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+#
+#   Members
+#
+prez:memp-turtle
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+prez:memp-xml
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+prez:memp-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+prez:memp-n3
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+prez:memp-nt
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+prez:memp-html
+    a altr:Representation ;
+    dcterms:conformsTo <https://w3id.org/profile/mem> ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+#
+#   schema.org
+#
+prez:sdop-turtle
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/text/turtle> ;
+.
+
+prez:sdop-xml
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/application/rdf+xml> ;
+.
+
+prez:sdop-jsonld
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/application/ld+json> ;
+.
+
+prez:sdop-n3
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/text/n3> ;
+.
+
+prez:sdop-nt
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/application/n-triples> ;
+.
+
+prez:sdop-html
+    a altr:Representation ;
+    dcterms:conformsTo <https://schema.org> ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+#
+# Open API
+#
+prez:oasp-html
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30> ;
+    dcterms:format <https://w3id.org/mediatype/text/html> ;
+.
+
+prez:oasp-geojson
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30> ;
+    dcterms:format <https://w3id.org/mediatype/application/geo+json> ;
+.
+
+prez:oasp-json
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30> ;
+    dcterms:format <https://w3id.org/mediatype/application/json> ;
+.
+
+prez:oasp-oasp-json
+    a altr:Representation ;
+    dcterms:conformsTo <http://www.opengis.net/spec/ogcapi-features-1/1.0/req/oas30> ;
+    dcterms:format <https://w3id.org/mediatype/application/vnd.oai.openapi+json;version=3.0> ;
+.

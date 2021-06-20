@@ -1,0 +1,46 @@
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX org: <http://www.w3.org/ns/org#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+<https://orcid.org/0000-0002-8742-7730>
+    a foaf:Person ;
+    dcterms:identifier "car"^^xsd:token ;
+    org:memberOf <https://linked.data.gov.au/org/surround> ;
+    foaf:name "Nicholas J. Car" ;
+    foaf:title "Dr" ;
+    foaf:mbox "nicholas.car@surroundaustralia.com"^^xsd:anyURI ;
+.
+
+<https://linked.data.gov.au/org/surround>
+    a foaf:Organization ;
+    dcterms:identifier "surround"^^xsd:token ;
+    foaf:name "SURROUND Australia Pty Ltd" ;
+    foaf:homepage <https://surroundaustralia.com> ;
+.
+
+<https://orcid.org/0000-0002-3884-3420>
+    a foaf:Person ;
+    dcterms:identifier "cox"^^xsd:token ;
+    org:memberOf <https://linked.data.gov.au/org/csiro> ;
+    foaf:name "Simon J D Cox" ;
+    foaf:title "Dr" ;
+    foaf:mbox "simon.cox@csiro.au"^^xsd:anyURI ;
+.
+
+<https://linked.data.gov.au/org/csiro>
+    a foaf:Organization ;
+    dcterms:identifier "csiro"^^xsd:token ;
+    foaf:name "Commonwealth Scientific Industrial Research Organisation" ;
+    foaf:nick "CSIRO" ;
+    foaf:homepage <https://www.csiro.au> ;
+.
+
+<https://linked.data.gov.au/org/ics>
+    a foaf:Organization ;
+    dcterms:identifier "ics"^^xsd:token ;
+    foaf:name "International Commission on Stratigraphy" ;
+    foaf:nick "ICS" ;
+    foaf:homepage <https://stratigraphy.org> ;
+.

@@ -1,9 +1,10 @@
+# Title each Distribution from the Resource if it doesn't have a title
+
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-
 INSERT {
-    GRAPH <https://inferred.com> {
+    GRAPH <urn:local:inferred> {
   	    ?r dcat:distribution ?d .
         ?d dcterms:title ?t_new .
     }
